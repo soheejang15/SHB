@@ -1,5 +1,4 @@
-import Main from './Main';
+import Main from "./Main";
+import MyPage from "./MyPage";
 
-export {
-    Main
-};
+export { Main, MyPage };

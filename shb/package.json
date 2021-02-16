@@ -26,7 +26,7 @@
     "directories": {
       "buildResources": "public"
     },
-    "target" : "zip"
+    "target": "zip"
   },
   "scripts": {
     "start": "react-scripts start",
