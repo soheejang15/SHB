@@ -1,10 +1,16 @@
 import * as React from "react";
 
-import { TitleProps } from "..";
 import { STitle } from "./style";
 
-function Title(props: TitleProps) {
-  return <STitle>{props.text}</STitle>;
-}
+const Title: React.FC = ({ children }) => {
+  return (
+    <>
+      <STitle>
+        <h1>{children}</h1>
+        <div></div>
+      </STitle>
+    </>
+  );
+};
 
 export default Title;

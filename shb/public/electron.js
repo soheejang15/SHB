@@ -1,40 +1,50 @@
-"use strict";
-exports.__esModule = true;
-var path = require("path");
-var url = require("url");
-var electron_1 = require("electron");
-var isDev = require("electron-is-dev");
-var baseUrl = "http://localhost:3000";
-var mainWindow;
+const path = require("path");
+const url = require("url");
+
+const { app, BrowserWindow } = require("electron");
+const isDev = require("electron-is-dev");
+
+const baseUrl = "http://localhost:1212";
+
+let mainWindow;
+
 function createMainWindow() {
-    mainWindow = new electron_1.BrowserWindow({
-        width: 450,
-        height: 800,
-        resizable: false,
-        webPreferences: {
-            nodeIntegration: true
-        }
-    });
-    var mainWindowUrl = url.format({
-        pathname: path.join(__dirname, "../build/index.html"),
-        protocol: "file"
-    });
-    mainWindow.loadURL(isDev ? baseUrl : mainWindowUrl);
-    if (isDev) {
-        mainWindow.webContents.openDevTools();
+  mainWindow = new BrowserWindow({
+    width: 450,
+    height: 800,
+    resizable: false,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: true
     }
-    mainWindow.on("closed", function () {
-        mainWindow = null;
-    });
+  });
+
+  const mainWindowUrl = url.format({
+    pathname: path.join(__dirname, "index.html"),
+    protocol: "file"
+  });
+
+  mainWindow.loadURL(isDev ? baseUrl : mainWindowUrl);
+
+  if (isDev) {
+    mainWindow.webContents.openDevTools();
+  }
+
+  mainWindow.on("closed", () => {
+    mainWindow = null;
+  });
 }
-electron_1.app.on("ready", function () {
+
+app.on("ready", () => {
+  createMainWindow();
+});
+
+app.on("window-all-closed", () => {
+  app.quit();
+});
+
+app.on("activate", () => {
+  if (mainWindow === null) {
     createMainWindow();
-});
-electron_1.app.on("window-all-closed", function () {
-    electron_1.app.quit();
-});
-electron_1.app.on("activate", function () {
-    if (mainWindow === null) {
-        createMainWindow();
-    }
+  }
 });

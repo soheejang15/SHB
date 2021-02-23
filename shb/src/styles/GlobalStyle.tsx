@@ -1,16 +1,15 @@
 import {
-    createGlobalStyle,
-    GlobalStyleComponent,
-    DefaultTheme,
-  } from 'styled-components';
-  
-  const GlobalStyle: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
+  createGlobalStyle,
+  GlobalStyleComponent,
+  DefaultTheme
+} from "styled-components";
+
+const GlobalStyle: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
     html, body {
       font-family: 'NanumSquare', sans-serif !important;;
     }
     input {
       border: none;
-      border-radius: 5px;
       &:focus {
         outline: none;
       }
@@ -70,5 +69,5 @@ import {
       user-select: none;
     }
   `;
-  
-  export default GlobalStyle;
+
+export default GlobalStyle;

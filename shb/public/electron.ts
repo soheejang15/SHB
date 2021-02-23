@@ -15,15 +15,16 @@ function createMainWindow(): void {
     resizable: false,
     webPreferences: {
       nodeIntegration: true,
-    },
+      contextIsolation: true
+    }
   });
 
   const mainWindowUrl: string = url.format({
     pathname: path.join(__dirname, "../build/index.html"),
-    protocol: "file",
+    protocol: "file"
   });
 
- mainWindow.loadURL(isDev ? baseUrl : mainWindowUrl);
+  mainWindow.loadURL(isDev ? baseUrl : mainWindowUrl);
 
   if (isDev) {
     mainWindow.webContents.openDevTools();
