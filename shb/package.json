@@ -2,6 +2,11 @@
   "name": "shb",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "깃헙 주소",
+    "email": "깃헙 이메일",
+    "url": "http://블라블라.com"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

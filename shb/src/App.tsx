@@ -1,16 +1,16 @@
 import React from "react";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
-import GlobalStyle from "./styles/GlobalStyle";
-import { Main, MyPage } from "./pages";
+import GlobalStyle from "./packages/styles/GlobalStyle";
+import SignIn from "./pages/Authentication/SignUp";
 
 function App() {
   return (
     <HashRouter>
       <GlobalStyle />
       <Switch>
-        <Route exact path="/" component={Main} />
-        <Route exact path="/mypage" component={MyPage} />
+        <Route exact path="/" component={SignIn} />
+        {/* <Route exact path="/my-page" component={MyPage} />  */}
       </Switch>
     </HashRouter>
   );
