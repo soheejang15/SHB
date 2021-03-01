@@ -1,7 +1,7 @@
 import {
   createGlobalStyle,
   GlobalStyleComponent,
-  DefaultTheme
+  DefaultTheme,
 } from "styled-components";
 
 const GlobalStyle: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
@@ -67,6 +67,12 @@ const GlobalStyle: GlobalStyleComponent<{}, DefaultTheme> = createGlobalStyle`
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+    }
+
+    body >div {
+      display: flex;
+      justify-content: center;
+      height: 100vh;
     }
   `;
 

@@ -2,10 +2,10 @@ import React, {
   ChangeEvent,
   KeyboardEvent,
   useCallback,
-  useState
+  useState,
 } from "react";
 
-import Input from "../../components/Common/Input";
+import Input from "../../packages/DesignSystem/Input";
 
 const Main = () => {
   const [name, setName] = useState<string>("");
@@ -19,7 +19,11 @@ const Main = () => {
       <Input isAct={false}>
         <label htmlFor="">이름</label>
         <div>
-          <input type="text" value={name} onChange={e => handleChangeName(e)} />
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => handleChangeName(e)}
+          />
           <button>인증번호</button>
         </div>
       </Input>

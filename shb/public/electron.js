@@ -4,24 +4,24 @@ const url = require("url");
 const { app, BrowserWindow } = require("electron");
 const isDev = require("electron-is-dev");
 
-const baseUrl = "http://localhost:1212";
+const baseUrl = "http://localhost:3000";
 
 let mainWindow;
 
 function createMainWindow() {
   mainWindow = new BrowserWindow({
     width: 450,
-    height: 800,
+    height: 828,
     resizable: false,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: true
-    }
+      contextIsolation: true,
+    },
   });
 
   const mainWindowUrl = url.format({
     pathname: path.join(__dirname, "index.html"),
-    protocol: "file"
+    protocol: "file",
   });
 
   mainWindow.loadURL(isDev ? baseUrl : mainWindowUrl);

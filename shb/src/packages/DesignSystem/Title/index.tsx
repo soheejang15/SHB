@@ -7,7 +7,7 @@ const Title: React.FC = ({ children }) => {
     <>
       <STitle>
         <h1>{children}</h1>
-        <div></div>
+        <div />
       </STitle>
     </>
   );
